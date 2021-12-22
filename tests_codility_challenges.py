@@ -18,5 +18,16 @@ binary = [(1, 0),
           (483, 3),
           (647, 4)]
 @pytest.mark.parametrize(["N", "expected"], binary)
-def test_example_add(N, expected):
+def test_binary_gap(N, expected):
     assert codility_challenges.binary_gap(N) == expected
+
+
+
+reverse = [([1,1,0,1,1,0,0,1,0], 3),
+           ([1,1,1,0,1,0,0,0,1,0,1], 2),
+           ([0,0,0,0,0,0,1], 3),
+           ([1,0,1], 0),
+           ([0,1,0], 0)]
+@pytest.mark.parametrize(["A", "expected"], reverse)
+def test_array(A, expected):
+    assert codility_challenges.solution(A) == expected
