@@ -31,3 +31,12 @@ reverse = [([1,1,0,1,1,0,0,1,0], 3),
 @pytest.mark.parametrize(["A", "expected"], reverse)
 def test_array(A, expected):
     assert codility_challenges.solution(A) == expected
+
+
+rotation = [([1, 2, 3, 4, 5], 4, [2, 3, 4, 5, 1]),
+            ([0, 3, 5, 9], 3, [3, 5, 9, 0]),
+            ([0, 0, 1], 3, [0, 0, 1]),
+            ([5, 8, 7, 2, 4, 6, 9, 5], 6, [7, 2, 4, 6, 9, 5, 5, 8])]
+@pytest.mark.parametrize(["A", "K", "expected"], rotation)
+def test_array_rotation(A, K, expected):
+    assert codility_challenges.rotation_solution(A, K) == expected
