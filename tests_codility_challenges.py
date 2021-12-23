@@ -3,8 +3,7 @@
 author: Pedro Paulo Monteiro Muniz Barbosa
 e-mail: pedropaulommb@gmail.com
 
-Codility - Iteration Lessions 1 - Binary Gap
-
+Codility Challenges - Tests
 
 """
 
@@ -40,3 +39,12 @@ rotation = [([1, 2, 3, 4, 5], 4, [2, 3, 4, 5, 1]),
 @pytest.mark.parametrize(["A", "K", "expected"], rotation)
 def test_array_rotation(A, K, expected):
     assert codility_challenges.rotation_solution(A, K) == expected
+
+
+odds = [([1, 6, 5, 1, 5, 7, 6], 7),
+        ([0, 2, 5, 2, 5, 9, 0], 9),
+        ([0, 0, 0, 0, 1], 1),
+        ([98, 56, 78, 1001, 56, 1001, 78], 98)]
+@pytest.mark.parametrize(["A", "expected"], odds)
+def test_odd_occurrency(A, expected):
+    assert codility_challenges.solution_odd_occurrency(A) == expected
