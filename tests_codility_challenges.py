@@ -48,3 +48,12 @@ odds = [([1, 6, 5, 1, 5, 7, 6], 7),
 @pytest.mark.parametrize(["A", "expected"], odds)
 def test_odd_occurrency(A, expected):
     assert codility_challenges.solution_odd_occurrency(A) == expected
+
+
+jump = [(10, 85, 30, 3),
+        (1, 75, 1, 74),
+        (1, 1, 1, 0),
+        (1065, 98546, 23, 4239)]
+@pytest.mark.parametrize(["X", "Y", "D", "expected"], jump)
+def test_frog_jump(X, Y, D, expected):
+    assert codility_challenges.solution_frog_jump(X, Y, D) == expected
