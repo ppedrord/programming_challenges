@@ -57,3 +57,11 @@ jump = [(10, 85, 30, 3),
 @pytest.mark.parametrize(["X", "Y", "D", "expected"], jump)
 def test_frog_jump(X, Y, D, expected):
     assert codility_challenges.solution_frog_jump(X, Y, D) == expected
+
+
+miss = [([1, 3, 4, 8, 6, 1, 7, 9, 10, 5, 5, 10, 20, 19, 18, 17, 16, 15, 16, 17, 14, 13, 12, 11], 2),
+        ([8, 4, 6, 7, 10, 15, 5, 12, 14, 13], 11),
+        ([50, 47, 46, 48, 45], 49)]
+@pytest.mark.parametrize(["A", "expected"], miss)
+def test_missing_element(A, expected):
+    assert codility_challenges.solution_missing_element(A) == expected

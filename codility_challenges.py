@@ -5,6 +5,8 @@ e-mail: pedropaulommb@gmail.com
 
 Codility Challenges
 """
+from typing import List, Any
+
 """
 A binary gap within a positive integer N is any maximal sequence of consecutive zeros that is surrounded by ones at 
 both ends in the binary representation of N.
@@ -37,7 +39,6 @@ def binary_gap(N : int) -> int:
     :return: The length of its longest binary gap
     """
     binary = "{0:b}".format(N)
-    print(binary)
     contador_0 = 0 # A counter of zeros to set the binary gap size.
     maior_gap = 0 # A variable to store the value of the largest binary gap.
 
@@ -50,7 +51,6 @@ def binary_gap(N : int) -> int:
         if i == "0":
             contador_0 += 1
 
-    print(maior_gap)
     return maior_gap
 
 
@@ -201,10 +201,10 @@ def solution_odd_occurrency(A):
     for i in A:
         if i in unpaired:
             unpaired.remove(i)
-            print(unpaired)
+
         else:
             unpaired.add(i)
-            print(unpaired)
+
     result = unpaired.pop() if len(unpaired) > 0 else 0
     return result
 
@@ -255,3 +255,56 @@ def solution_frog_jump(X: int, Y: int, D: int) -> int:
         X = position
 
     return min_jump
+
+"""
+An array A consisting of N different integers is given. The array contains integers in the range [1..(N + 1)], 
+which means that exactly one element is missing.
+
+Your goal is to find that missing element.
+
+    Write a function:
+
+        def solution(A)
+
+    that, given an array A, returns the value of the missing element.
+
+For example, given array A such that:
+
+  A[0] = 2
+  A[1] = 3
+  A[2] = 1
+  A[3] = 5
+the function should return 4, as it is the missing element.
+
+Write an efficient algorithm for the following assumptions:
+
+N is an integer within the range [0..100,000];
+the elements of A are all distinct;
+each element of array A is an integer within the range [1..(N + 1)].
+"""
+
+
+def solution_missing_element(A: list) -> list:
+    """
+    :param A: An array consisting of N different integers
+    :return: The value of the missing element.
+    """
+    A = set(A)      # To eliminate duplicate values of the array.
+    A = list(A)     # To turn a set type on a list type.
+    A.sort()        # To sort the list ascending.
+    missing_element = 0     # A variable to store the missing element.
+    x = len(A) - 1
+
+    for i,v in enumerate(A):
+        if i == x:
+            """
+            The highest valued element in the array will never be the missing element. That way, we can eliminate it so 
+            that an error like "list index out of range" doesn't occur.
+            """
+            break
+        if A[i + 1] != (A[i] + 1):
+            missing_element = A[i] + 1
+
+
+
+    return missing_element
