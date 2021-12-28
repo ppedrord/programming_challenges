@@ -65,3 +65,12 @@ miss = [([1, 3, 4, 8, 6, 1, 7, 9, 10, 5, 5, 10, 20, 19, 18, 17, 16, 15, 16, 17, 
 @pytest.mark.parametrize(["A", "expected"], miss)
 def test_missing_element(A, expected):
     assert codility_challenges.solution_missing_element(A) == expected
+
+
+tape = [([1, 2, 3, 4, 5], 3),
+        ([0, 0, 0, 0, 0, 0], 0),
+        ([145, 6548, 165, 14, 0, 1651], 8523),
+        ([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 16)]
+@pytest.mark.parametrize(["A", "expected"], tape)
+def test_tape_equilibrium(A, expected):
+    assert codility_challenges.solution_tape_equilibrium(A) == expected
