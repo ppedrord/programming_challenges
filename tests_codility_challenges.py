@@ -74,3 +74,12 @@ tape = [([1, 2, 3, 4, 5], 3),
 @pytest.mark.parametrize(["A", "expected"], tape)
 def test_tape_equilibrium(A, expected):
     assert codility_challenges.solution_tape_equilibrium(A) == expected
+
+
+jump = [([1, 3, 1, 4, 2, 3, 5, 4], 5, 6),
+        ([1], 1, 0),
+        ([7, 8, 1, 1, 3, 5, 6, 2, 4, 1, 2, 3, 4, 5, 6, 7, 8, 9], 9, 17)]
+@pytest.mark.parametrize(["A", "X", "expected"], jump)
+def test_frog_river_one(A, X, expected):
+    assert codility_challenges.solution_frog_river_one(A, X) == expected
+
