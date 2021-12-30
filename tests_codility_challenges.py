@@ -83,3 +83,12 @@ jump = [([1, 3, 1, 4, 2, 3, 5, 4], 5, 6),
 def test_frog_river_one(A, X, expected):
     assert codility_challenges.solution_frog_river_one(A, X) == expected
 
+
+perm = [([4, 1, 3, 2], 1),
+        ([4, 4, 1, 3, 5, 2], 1),
+        ([1, 2, 3, 4, 5, 5, 7, 8, 9], 0),
+        ([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 0)]
+@pytest.mark.parametrize(["A", "expected"], perm)
+def test_perm_check(A, expected):
+    assert codility_challenges.solution_perm_check(A) == expected
+

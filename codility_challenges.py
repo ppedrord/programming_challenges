@@ -5,7 +5,7 @@ e-mail: pedropaulommb@gmail.com
 
 Codility Challenges
 """
-from typing import List, Any
+
 
 """
 A binary gap within a positive integer N is any maximal sequence of consecutive zeros that is surrounded by ones at 
@@ -451,10 +451,10 @@ def solution_frog_river_one(A: list, X: int) -> int:
     X += 1
     X = range(X)
     X = list(X)
-    sum_x = sum(X)
-    list_sum = list()
-    num_i = 0
-    sum_a = 0
+    sum_x = sum(X)      # A variable to store the list value coming from the range of X.
+    list_sum = list()   # A list to set the indices of array A that represent seconds.
+    num_i = 0           # The moment when the frog can jump.
+    sum_a = 0           # The sum of the "list_sum".
 
     for i,v in enumerate(A):
         if sum_x == sum_a:
@@ -467,4 +467,72 @@ def solution_frog_river_one(A: list, X: int) -> int:
 
 
     return num_i
+
+
+"""
+A non-empty array A consisting of N integers is given.
+
+A permutation is a sequence containing each element from 1 to N once, and only once.
+
+For example, array A such that:
+
+    A[0] = 4
+    A[1] = 1
+    A[2] = 3
+    A[3] = 2
+is a permutation, but array A such that:
+
+    A[0] = 4
+    A[1] = 1
+    A[2] = 3
+is not a permutation, because value 2 is missing.
+
+The goal is to check whether array A is a permutation.
+
+            Write a function:
+
+                def solution(A)
+
+            that, given an array A, returns 1 if array A is a permutation and 0 if it is not.
+
+For example, given array A such that:
+
+    A[0] = 4
+    A[1] = 1
+    A[2] = 3
+    A[3] = 2
+the function should return 1.
+
+Given array A such that:
+
+    A[0] = 4
+    A[1] = 1
+    A[2] = 3
+the function should return 0.
+
+Write an efficient algorithm for the following assumptions:
+
+N is an integer within the range [1..100,000];
+each element of array A is an integer within the range [1..1,000,000,000].
+"""
+
+
+def solution_perm_check(A: list) -> int:
+    """
+    :param A: An array consisting of N integers.
+    :return: 1 if the array is a permutation or 0 if it's not.
+    """
+
+    A = set(A)      # To set the array A and exclude repeated elements.
+    A = list(A)     # To turn the set type on a list type.
+    sum_i = 0
+    list_sum_i = []
+
+    for i in A:
+        sum_i += 1
+        list_sum_i.append(sum_i)
+
+    return 1 if sum(list_sum_i) == sum(A) else 0
+
+
 
