@@ -599,7 +599,7 @@ def solution_max_counters(A : list, N : int) -> list:
     """
 
 
-    list_counter = list(range(N))       # -> A list with a number N of elements
+    list_counter = list(range(N))       # -> A list with N numbers of elements
     for i in list_counter:
         list_counter[i] = 0             # - > To set all the elements to zero
 
@@ -616,3 +616,60 @@ def solution_max_counters(A : list, N : int) -> list:
 
 
     return list_counter
+
+
+"""
+This is a demo task.
+
+            Write a function:
+
+                def solution(A)
+
+            that, given an array A of N integers, returns the smallest positive integer (greater than 0) that does not 
+            occur in A.
+
+For example, given A = [1, 3, 6, 4, 1, 2], the function should return 5.
+
+Given A = [1, 2, 3], the function should return 4.
+
+Given A = [−1, −3], the function should return 1.
+
+Write an efficient algorithm for the following assumptions:
+
+N is an integer within the range [1..100,000];
+each element of array A is an integer within the range [−1,000,000..1,000,000].
+"""
+
+def solution_missing_integer(A : list) -> int:
+    """
+    :param A: An array A of N integers.
+    :return: The smallest positive integer (greater than 0) that does not occur in A.
+    """
+
+
+    A = set(A)
+    list_num = list(range(len(A) + 2))
+    list_num.sort()
+    list_num.remove(0)
+    print(list_num)
+    A = list(A)
+    A.sort()
+    print(A)
+    num_a = 0
+    num_list = 0
+    missing_integer = 0
+
+    for i,v in enumerate(A):
+        if v > 0:
+            num_a += A[i]
+            num_list += list_num[i]
+            print(num_a)
+            print(num_list)
+            if num_a != num_list:
+                missing_integer = list_num[i]
+            else:
+                missing_integer = A[i] + 1
+        else:
+            missing_integer = 1
+
+    return missing_integer if missing_integer > 0 else 1

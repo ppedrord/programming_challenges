@@ -100,3 +100,10 @@ counters = [([3, 4, 4, 6, 1, 4, 4], 5, [3, 2, 2, 4, 2]),
 @pytest.mark.parametrize(["A", "N", "expected"], counters)
 def test_solution_max_counters(A, N, expected):
     assert codility_challenges.solution_max_counters(A, N) == expected
+
+integer = [([1, 3, 6, 4, 1, 2], 5),
+           ([1, 2, 3], 4),
+           ([-1, -3], 1)]
+@pytest.mark.parametrize(["A", "expected"], integer)
+def test_missing_integer(A, expected):
+    assert codility_challenges.solution_missing_integer(A) == expected
