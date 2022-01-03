@@ -238,7 +238,7 @@ X, Y and D are integers within the range [1..1,000,000,000];
 X ≤ Y.
 """
 
-def solution_frog_jump(X: int, Y: int, D: int) -> int:
+def solution_frog_jump(X : int, Y : int, D : int) -> int:
     """
     :param X: The position where the frog is located.
     :param Y: Position where the frog wants to go (X =< Y).
@@ -283,7 +283,7 @@ each element of array A is an integer within the range [1..(N + 1)].
 """
 
 
-def solution_missing_element(A: list) -> list:
+def solution_missing_element(A : list) -> list:
     """
     :param A: An array consisting of N different integers
     :return: The value of the missing element.
@@ -357,7 +357,7 @@ each element of array A is an integer within the range [−1,000..1,000].
 
 
 
-def solution_tape_equilibrium(A: list) -> int:
+def solution_tape_equilibrium(A : list) -> int:
     """
     :param A: A non-empty array A of N integers.
     :return: The minimal difference that can be achieved.
@@ -441,7 +441,7 @@ each element of array A is an integer within the range [1..X].
 """
 
 
-def solution_frog_river_one(A: list, X: int) -> int:
+def solution_frog_river_one(A : list, X : int) -> int:
     """
     :param A: An array consisting of N integers representing the falling leaves
     :param X: The position the frog wants to reach.
@@ -517,7 +517,7 @@ each element of array A is an integer within the range [1..1,000,000,000].
 """
 
 
-def solution_perm_check(A: list) -> int:
+def solution_perm_check(A : list) -> int:
     """
     :param A: An array consisting of N integers.
     :return: 1 if the array is a permutation or 0 if it's not.
@@ -534,5 +534,85 @@ def solution_perm_check(A: list) -> int:
 
     return 1 if sum(list_sum_i) == sum(A) else 0
 
+"""
+You are given N counters, initially set to 0, and you have two possible operations on them:
+
+increase(X) − counter X is increased by 1,
+max counter − all counters are set to the maximum value of any counter.
+A non-empty array A of M integers is given. This array represents consecutive operations:
+
+if A[K] = X, such that 1 ≤ X ≤ N, then operation K is increase(X),
+if A[K] = N + 1 then operation K is max counter.
+For example, given integer N = 5 and array A such that:
+
+    A[0] = 3
+    A[1] = 4
+    A[2] = 4
+    A[3] = 6
+    A[4] = 1
+    A[5] = 4
+    A[6] = 4
+the values of the counters after each consecutive operation will be:
+
+    (0, 0, 1, 0, 0)
+    (0, 0, 1, 1, 0)
+    (0, 0, 1, 2, 0)
+    (2, 2, 2, 2, 2)
+    (3, 2, 2, 2, 2)
+    (3, 2, 2, 3, 2)
+    (3, 2, 2, 4, 2)
+The goal is to calculate the value of every counter after all operations.
+
+            Write a function:
+            
+                def solution(N, A)
+            
+            that, given an integer N and a non-empty array A consisting of M integers, returns a sequence of integers 
+            representing the values of the counters.
+            
+            Result array should be returned as an array of integers.
+
+For example, given:
+
+    A[0] = 3
+    A[1] = 4
+    A[2] = 4
+    A[3] = 6
+    A[4] = 1
+    A[5] = 4
+    A[6] = 4
+the function should return [3, 2, 2, 4, 2], as explained above.
+
+Write an efficient algorithm for the following assumptions:
+
+N and M are integers within the range [1..100,000];
+each element of array A is an integer within the range [1..N + 1].
+"""
+
+def solution_max_counters(A : list, N : int) -> list:
+    """
+    :param A: A non-empty array A of M integers. This array represents consecutive operations:
+    if A[K] = X, such that 1 ≤ X ≤ N, then operation K is increase(X),
+    if A[K] = N + 1 then operation K is max counter.
+    :param N: An integer N that represents N counters.
+    :return: A sequence of integers representing the values of the counters.
+    """
 
 
+    list_counter = list(range(N))       # -> A list with a number N of elements
+    for i in list_counter:
+        list_counter[i] = 0             # - > To set all the elements to zero
+
+
+    for i,v in enumerate(A):
+
+        if 1 <= v and v <= N:
+            list_counter[v - 1] += 1
+
+        elif v >= N + 1:
+            max_value = max(list_counter)
+            for j in range(0, len(list_counter)):
+                list_counter[j] = max_value
+
+
+    return list_counter

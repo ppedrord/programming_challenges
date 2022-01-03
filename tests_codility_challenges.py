@@ -92,3 +92,11 @@ perm = [([4, 1, 3, 2], 1),
 def test_perm_check(A, expected):
     assert codility_challenges.solution_perm_check(A) == expected
 
+
+
+counters = [([3, 4, 4, 6, 1, 4, 4], 5, [3, 2, 2, 4, 2]),
+            ([6, 4, 4, 5, 7, 2, 1, 9], 8, [2, 2, 2, 2, 2, 2, 2, 2]),
+            ([1, 2, 3, 2], 3, [1, 2, 1])]
+@pytest.mark.parametrize(["A", "N", "expected"], counters)
+def test_solution_max_counters(A, N, expected):
+    assert codility_challenges.solution_max_counters(A, N) == expected
