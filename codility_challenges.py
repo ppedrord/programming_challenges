@@ -32,6 +32,7 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [1..2,147,483,647].
 """
 
+
 def binary_gap(N : int) -> int:
     """
 
@@ -81,13 +82,14 @@ There are N coins, each showing either heads or tails. We would like all the coi
 
 """
 
+
 def solution(A : list) -> int:
     """
-    :param A: An array A consisting of N integers representing the coins, returns the minimum number of coins that must
-    be reversed. Consecutive elements of array A represent consecutive coins and contain either a
-    0 (heads) or a 1 (tails).
+    :param A: An array A consisting of N integers representing the coins. Consecutive elements of array A represent
+    consecutive coins and contain either a 0 (heads) or a 1 (tails).
     :return: The minimum number of turns for the results to alternate.
     """
+
     min_flip_0 = 0 # The minimum number of turns starting with 0.
     min_flip_1 = 0 # The minimum number of turns starting with 1.
 
@@ -98,6 +100,7 @@ def solution(A : list) -> int:
             min_flip_1 += 1
 
     return min(min_flip_0, min_flip_1)
+
 
 """
 An array A consisting of N integers is given. Rotation of the array means that each element is shifted right by one 
@@ -154,6 +157,7 @@ def rotation_solution(A, K):
     for i in range(K):      # -> As long as i is in the K range, the program will continue running.
         A = rotation(A)
     return A
+
 
 """
 A non-empty array A consisting of N integers is given. The array contains an odd number of elements, and each element 
@@ -238,6 +242,7 @@ X, Y and D are integers within the range [1..1,000,000,000];
 X ≤ Y.
 """
 
+
 def solution_frog_jump(X : int, Y : int, D : int) -> int:
     """
     :param X: The position where the frog is located.
@@ -255,6 +260,7 @@ def solution_frog_jump(X : int, Y : int, D : int) -> int:
         X = position
 
     return min_jump
+
 
 """
 An array A consisting of N different integers is given. The array contains integers in the range [1..(N + 1)], 
@@ -354,7 +360,6 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [2..100,000];
 each element of array A is an integer within the range [−1,000..1,000].
 """
-
 
 
 def solution_tape_equilibrium(A : list) -> int:
@@ -534,6 +539,7 @@ def solution_perm_check(A : list) -> int:
 
     return 1 if sum(list_sum_i) == sum(A) else 0
 
+
 """
 You are given N counters, initially set to 0, and you have two possible operations on them:
 
@@ -589,6 +595,7 @@ N and M are integers within the range [1..100,000];
 each element of array A is an integer within the range [1..N + 1].
 """
 
+
 def solution_max_counters(A : list, N : int) -> list:
     """
     :param A: A non-empty array A of M integers. This array represents consecutive operations:
@@ -640,6 +647,7 @@ N is an integer within the range [1..100,000];
 each element of array A is an integer within the range [−1,000,000..1,000,000].
 """
 
+
 def solution_missing_integer(A : list) -> int:
     """
     :param A: An array A of N integers.
@@ -647,14 +655,12 @@ def solution_missing_integer(A : list) -> int:
     """
 
 
-    A = set(A)
-    list_num = list(range(len(A) + 2))
-    list_num.sort()
-    list_num.remove(0)
-    print(list_num)
-    A = list(A)
-    A.sort()
-    print(A)
+    A = set(A)                              # -> To set the array A and exclude the repeated elements.
+    list_num = list(range(len(A) + 2))      # -> To create a list with all the elements within the range of A.
+    list_num.sort()                         # -> To sort the list list_num.
+    list_num.remove(0)                      # -> To remove the 0 from the list so that it starts at 1.
+    A = list(A)                             # -> To turn the set type on a list type.
+    A.sort()                                # -> To sort the list A.
     num_a = 0
     num_list = 0
     missing_integer = 0
@@ -663,8 +669,6 @@ def solution_missing_integer(A : list) -> int:
         if v > 0:
             num_a += A[i]
             num_list += list_num[i]
-            print(num_a)
-            print(num_list)
             if num_a != num_list:
                 missing_integer = list_num[i]
             else:

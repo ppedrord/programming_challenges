@@ -11,6 +11,7 @@ Codility Challenges - Tests
 import pytest
 import codility_challenges
 
+
 binary = [(1, 0),
           (2, 0),
           (147, 2),
@@ -19,7 +20,6 @@ binary = [(1, 0),
 @pytest.mark.parametrize(["N", "expected"], binary)
 def test_binary_gap(N, expected):
     assert codility_challenges.binary_gap(N) == expected
-
 
 
 reverse = [([1,1,0,1,1,0,0,1,0], 3),
@@ -91,7 +91,6 @@ perm = [([4, 1, 3, 2], 1),
 @pytest.mark.parametrize(["A", "expected"], perm)
 def test_perm_check(A, expected):
     assert codility_challenges.solution_perm_check(A) == expected
-
 
 
 counters = [([3, 4, 4, 6, 1, 4, 4], 5, [3, 2, 2, 4, 2]),
