@@ -6,6 +6,8 @@ e-mail: pedropaulommb@gmail.com
 Beecrowd Challenges
 
 """
+
+
 """
 Como de costume, neste ano Noel recebeu muitos pedidos de presentes. Só que em função de alguns imprevistos, não terá 
 como entregar todos os presentes pessoalmente neste ano. Daí então decidiu utilizar o velho e bom correio tradicional, 
@@ -32,21 +34,22 @@ Seu programa deverá imprimir todas as etiquetas de acordo com a entrada, confor
 linha em branco após a impressão de cada uma das etiquetas, inclusive após a última etiqueta.
 """
 
-
-num_idioms = int(input())
+print("Etiquetas de Noel")
+N = int(input())
 dict = {}
-for i in range(num_idioms):
+for i in range(N):
     language = input()
-    traducion = input()
-    dict[language] = traducion
+    translate = input()
+    dict[language] = translate
 
-num_kids = int(input())
-for i in range(num_kids):
-    nome = input()
+M = int(input())
+for i in range(M):
+    name = input()
     language = input()
-    print(nome)
+    print(name)
     print(dict[language])
     print()
+
 
 """
 Leia dois valores inteiros M e N indefinidamente. A cada leitura, calcule e escreva a soma dos fatoriais de cada um dos 
@@ -61,6 +64,7 @@ Para cada caso de teste de entrada, seu programa deve imprimir uma única linha,
 ambos os fatoriais (de M e N).
 """
 
+print("Soma de fatoriais")
 while (True):
     try:
         M, N = map(int,input().split())
@@ -78,6 +82,7 @@ while (True):
         print(m_fact + n_fact)
     except:
         break
+
 
 """
 A sua impressora foi infectada por um vírus e está imprimindo de forma incorreta. Depois de olhar para várias páginas 
@@ -106,6 +111,8 @@ Saída
 Para cada linha de entrada deverá ser impressa uma linha de saída com a frase decifrada, conforme a especificação acima.
 """
 
+
+print("De dentro pra fora")
 for i in range(int(input())):
     A = list(str(input()))
     rotate_a = []
