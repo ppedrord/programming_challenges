@@ -9,7 +9,7 @@ Programming Challenges - Tests
 
 
 import pytest
-import programming_challenges
+import codility_challenges
 
 
 binary = [(1, 0),
@@ -108,3 +108,5 @@ integer = [([1, 3, 6, 4, 1, 2], 5),
 @pytest.mark.parametrize(["A", "expected"], integer)
 def test_missing_integer(A, expected):
     assert codility_challenges.solution_missing_integer(A) == expected
+
+
