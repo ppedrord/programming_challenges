@@ -28,8 +28,8 @@ reverse = [([1,1,0,1,1,0,0,1,0], 3),
            ([1,0,1], 0),
            ([0,1,0], 0)]
 @pytest.mark.parametrize(["A", "expected"], reverse)
-def test_array(A, expected):
-    assert codility_challenges.solution(A) == expected
+def test_flip_coin(A, expected):
+    assert codility_challenges.solution_flip_coin(A) == expected
 
 
 rotation = [([1, 2, 3, 4, 5], 4, [2, 3, 4, 5, 1]),
@@ -109,4 +109,11 @@ integer = [([1, 3, 6, 4, 1, 2], 5),
 def test_missing_integer(A, expected):
     assert codility_challenges.solution_missing_integer(A) == expected
 
+cars = [([0, 1, 0, 1, 1], 5),
+        ([1, 0, 1, 1, 1, 0, 1], 5),
+        ([0, 0, 0, 0, 0, 0, 0, 0, 1], 8),
+        ([1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 0)]
+@pytest.mark.parametrize(["A", "expected"], cars)
+def test_passing_cars(A, expected):
+    assert codility_challenges.solution_passing_cars(A) == expected
 
