@@ -787,6 +787,8 @@ def solution_count_div(A : int, B : int, K: int) -> int:
         num_div = 0
     elif K < 1:
         num_div = 0
+    elif A > B:
+        num_div = 0
     else:
         num_div = 0
         num_list = list(range(A, B + 1))
@@ -796,8 +798,6 @@ def solution_count_div(A : int, B : int, K: int) -> int:
                     num_div += 1
             except ZeroDivisionError:
                 num_div = 0
-    if A > B:
-        num_div = 0
 
     return num_div
 
