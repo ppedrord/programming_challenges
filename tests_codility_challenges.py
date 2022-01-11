@@ -122,7 +122,11 @@ count_div = [(6, 11, 2, 3),
              (1, 10, 2, 5),
              (15, 10, 2, 0),
              (0, 10, 2, 6),
-             (0, 10, 0, 0)]
+             (0, 10, 0, 0),
+             (1.5, 3, 2, 0),
+             (1, 3.5, 2, 0),
+             (1, 10, 1.5, 0),
+             (1, 10, -1, 0)]
 @pytest.mark.parametrize(["A", "B", "K", "expected"], count_div)
 def test_count_div(A, B, K, expected):
     assert codility_challenges.solution_count_div(A, B, K) == expected

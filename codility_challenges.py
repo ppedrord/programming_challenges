@@ -782,14 +782,20 @@ def solution_count_div(A : int, B : int, K: int) -> int:
     :return: The number of integers within the range [A..B] that are divisible by K, i.e.:
                                                                              { i : A ≤ i ≤ B, i mod K = 0 }
     """
-    num_div = 0
-    num_list = list(range(A, B + 1))
-    for i in num_list:
-        try:
-            if i%K == 0:
-                num_div += 1
-        except ZeroDivisionError:
-            num_div = 0
+
+    if type(A) != int or type(B) != int or type(K) != int:
+        num_div = 0
+    elif K < 1:
+        num_div = 0
+    else:
+        num_div = 0
+        num_list = list(range(A, B + 1))
+        for i in num_list:
+            try:
+                if i%K == 0:
+                    num_div += 1
+            except ZeroDivisionError:
+                num_div = 0
     if A > B:
         num_div = 0
 
