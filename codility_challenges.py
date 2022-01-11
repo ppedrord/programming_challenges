@@ -790,6 +790,8 @@ def solution_count_div(A : int, B : int, K: int) -> int:
                 num_div += 1
         except ZeroDivisionError:
             num_div = 0
+    if A > B:
+        num_div = 0
 
     return num_div
 
