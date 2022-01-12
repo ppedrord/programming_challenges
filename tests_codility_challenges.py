@@ -131,3 +131,12 @@ count_div = [(6, 11, 2, 3),
 def test_count_div(A, B, K, expected):
     assert codility_challenges.solution_count_div(A, B, K) == expected
 
+
+gen_range = [('CAGCCTA', [2, 5, 0], [4, 5, 6], [2, 4, 1]),
+             ('agttcaagt', [0, 5, 4, 2], [3, 8, 4, 3], [1, 1, 2, 4]),
+             ('ACGTACGTACGTT', [0], [12], [1]),
+             ('aaaaaaaaaaaaaaaaacgt', [0, 17, 18, 19], [19, 19, 19, 19], [1, 2, 3, 4])]
+@pytest.mark.parametrize(["S", "P", "Q", "expected"], gen_range)
+def test_genomic_range_query(S, P, Q, expected):
+    assert codility_challenges.solution_genomic_range_query(S, P, Q) == expected
+
