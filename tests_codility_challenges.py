@@ -148,3 +148,15 @@ slice = [([4, 2, 2, 5, 1, 5, 8], 1),
 @pytest.mark.parametrize(["A", "expected"], slice)
 def test_min_avg_two_slice(A, expected):
     assert codility_challenges.solution_min_avg_two_slice(A) == expected
+
+
+distinct_values = [([2, 1, 1, 2, 3, 1], 3),
+                   ([], 0),
+                   ([1, 2, 3], 3),
+                   ([1], 1),
+                   ([-1, -2, -3, -4, -5], 5),
+                   ([50000, 645878, 956842, 1000000, 789456], 5),
+                   ([8, 9, 5, 7, 2, 3, 1, 6, 4, 10], 10)]
+@pytest.mark.parametrize(["A", "expected"], distinct_values)
+def test_distinct(A, expected):
+    assert codility_challenges.solution_distinct(A) == expected
