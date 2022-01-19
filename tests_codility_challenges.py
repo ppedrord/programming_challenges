@@ -160,3 +160,11 @@ distinct_values = [([2, 1, 1, 2, 3, 1], 3),
 @pytest.mark.parametrize(["A", "expected"], distinct_values)
 def test_distinct(A, expected):
     assert codility_challenges.solution_distinct(A) == expected
+
+
+triplet = [([-3, 1, 2, -2, 5, 6], 60),
+           ([1, 2, 3], 6),
+           ([4, 5, 6, 2, 654, 85, -100, -9875, 65, 985, 65, 6892, 13, 56, 98369], 667789760780)]
+@pytest.mark.parametrize(["A", "expected"], triplet)
+def test_max_product_of_three(A, expected):
+    assert codility_challenges.solution_max_product_of_three(A) == expected
