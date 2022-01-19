@@ -168,3 +168,14 @@ triplet = [([-3, 1, 2, -2, 5, 6], 60),
 @pytest.mark.parametrize(["A", "expected"], triplet)
 def test_max_product_of_three(A, expected):
     assert codility_challenges.solution_max_product_of_three(A) == expected
+
+
+triangle_search = [([10, 2, 5, 1, 8, 20], 1),
+                   ([], 0),
+                   ([1], 0),
+                   ([1, 2], 0),
+                   ([-5, -5, -5], 0),
+                   ([5, 8, 9, 654, 12, 7825, 123, 4, 5, 8, 5, 10, 654, 8, 5, 6, 9, 4, 8, 9, 50, 51, 53], 1)]
+@pytest.mark.parametrize(["A", "expected"], triangle_search)
+def test_triangle(A, expected):
+    assert codility_challenges.solution_triangle(A) == expected
