@@ -140,3 +140,11 @@ gen_range = [('CAGCCTA', [2, 5, 0], [4, 5, 6], [2, 4, 1]),
 def test_genomic_range_query(S, P, Q, expected):
     assert codility_challenges.solution_genomic_range_query(S, P, Q) == expected
 
+
+slice = [([4, 2, 2, 5, 1, 5, 8], 1),
+         ([-10000, 6, 98, -56, 87, 95], 0),
+         ([-10000, 5, 6, 7, 8, 1, -10000], 5),
+         ([-10000, -5000, 9, 9, -9000, 1000], 0)]
+@pytest.mark.parametrize(["A", "expected"], slice)
+def test_min_avg_two_slice(A, expected):
+    assert codility_challenges.solution_min_avg_two_slice(A) == expected
