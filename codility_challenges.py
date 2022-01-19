@@ -1054,7 +1054,7 @@ N is an integer within the range [3..100,000];
 each element of array A is an integer within the range [−1,000..1,000].
 """
 
-A = [4, 5, 6, 2, 654, 85, -100, -9875, 65, 985, 65, 6892, 13, 56, 98369]
+
 def solution_max_product_of_three(A : list) -> int:
     """
     :param A: A non-empty array A.
