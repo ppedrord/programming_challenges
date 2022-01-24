@@ -12,11 +12,22 @@ import pytest
 import codility_challenges
 
 
-binary = [(1, 0),
-          (2, 0),
-          (147, 2),
-          (483, 3),
-          (647, 4)]
+binary = [
+        (1, 0),
+        (2, 0),
+        (147, 2),
+        (483, 3),
+        (647, 4),
+        (647, 4),
+        (66561, 9),
+        (1041, 5),
+        (15, 0),
+        (32, 0),
+        (328, 2),
+        (51712, 2),
+        (561892, 3),
+        (66561, 9)
+]
 @pytest.mark.parametrize(["N", "expected"], binary)
 def test_binary_gap(N, expected):
     assert codility_challenges.binary_gap(N) == expected
