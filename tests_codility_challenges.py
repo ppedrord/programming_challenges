@@ -10,6 +10,7 @@ Programming Challenges - Tests
 import pytest
 import codility_challenges
 
+
 binary = [(1, 0),
           (2, 0),
           (147, 2),
