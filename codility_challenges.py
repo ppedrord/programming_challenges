@@ -7,7 +7,6 @@ Codility Challenges
 
 """
 
-
 """
 A binary gap within a positive integer N is any maximal sequence of consecutive zeros that is surrounded by ones at 
 both ends in the binary representation of N.
@@ -34,15 +33,15 @@ N is an integer within the range [1..2,147,483,647].
 """
 
 
-def binary_gap(N : int) -> int:
+def binary_gap(N: int) -> int:
     """
 
     :param N: A positive integer.
     :return: The length of its longest binary gap
     """
     binary = "{0:b}".format(N)
-    contador_0 = 0 # A counter of zeros to set the binary gap size.
-    maior_gap = 0 # A variable to store the value of the largest binary gap.
+    contador_0 = 0  # A counter of zeros to set the binary gap size.
+    maior_gap = 0  # A variable to store the value of the largest binary gap.
 
     for i in binary:
 
@@ -84,20 +83,20 @@ There are N coins, each showing either heads or tails. We would like all the coi
 """
 
 
-def solution_flip_coin(A : list) -> int:
+def solution_flip_coin(A: list) -> int:
     """
     :param A: An array A consisting of N integers representing the coins. Consecutive elements of array A represent
     consecutive coins and contain either a 0 (heads) or a 1 (tails).
     :return: The minimum number of turns for the results to alternate.
     """
 
-    min_flip_0 = 0 # The minimum number of turns starting with 0.
-    min_flip_1 = 0 # The minimum number of turns starting with 1.
+    min_flip_0 = 0  # The minimum number of turns starting with 0.
+    min_flip_1 = 0  # The minimum number of turns starting with 1.
 
-    for i,v in enumerate(A):
-        if i%2 != v:
+    for i, v in enumerate(A):
+        if i % 2 != v:
             min_flip_0 += 1
-        if (i + 1)%2 != v:
+        if (i + 1) % 2 != v:
             min_flip_1 += 1
 
     return min(min_flip_0, min_flip_1)
@@ -152,10 +151,10 @@ def rotation_solution(A, K):
     :return: A list that was shifted a K number of times.
     """
 
-    def rotation(A):        # -> This is a function to set the rotation of A by one unit to the right.
+    def rotation(A):  # -> This is a function to set the rotation of A by one unit to the right.
         return [A[-1]] + A[:-1]
 
-    for i in range(K):      # -> As long as i is in the K range, the program will continue running.
+    for i in range(K):  # -> As long as i is in the K range, the program will continue running.
         A = rotation(A)
     return A
 
@@ -244,7 +243,7 @@ X ≤ Y.
 """
 
 
-def solution_frog_jump(X : int, Y : int, D : int) -> int:
+def solution_frog_jump(X: int, Y: int, D: int) -> int:
     """
     :param X: The position where the frog is located.
     :param Y: Position where the frog wants to go (X =< Y).
@@ -252,7 +251,7 @@ def solution_frog_jump(X : int, Y : int, D : int) -> int:
     :return: The minimal number of jumps that the frog must perform to reach its target.
     """
 
-    min_jump = 0        # The minimal number of jumps that the frog must perform to reach its target.
+    min_jump = 0  # The minimal number of jumps that the frog must perform to reach its target.
     position = X
 
     while position < Y:
@@ -290,18 +289,18 @@ each element of array A is an integer within the range [1..(N + 1)].
 """
 
 
-def solution_missing_element(A : list) -> list:
+def solution_missing_element(A: list) -> list:
     """
     :param A: An array consisting of N different integers
     :return: The value of the missing element.
     """
-    A = set(A)      # To eliminate duplicate values of the array.
-    A = list(A)     # To turn a set type on a list type.
-    A.sort()        # To sort the list ascending.
-    missing_element = 0     # A variable to store the missing element.
+    A = set(A)  # To eliminate duplicate values of the array.
+    A = list(A)  # To turn a set type on a list type.
+    A.sort()  # To sort the list ascending.
+    missing_element = 0  # A variable to store the missing element.
     x = len(A) - 1
 
-    for i,v in enumerate(A):
+    for i, v in enumerate(A):
         if i == x:
             """
             The highest valued element in the array will never be the missing element. That way, we can eliminate it so 
@@ -310,8 +309,6 @@ def solution_missing_element(A : list) -> list:
             break
         if A[i + 1] != (A[i] + 1):
             missing_element = A[i] + 1
-
-
 
     return missing_element
 
@@ -363,7 +360,7 @@ each element of array A is an integer within the range [−1,000..1,000].
 """
 
 
-def solution_tape_equilibrium(A : list) -> int:
+def solution_tape_equilibrium(A: list) -> int:
     """
     :param A: A non-empty array A of N integers.
     :return: The minimal difference that can be achieved.
@@ -372,7 +369,6 @@ def solution_tape_equilibrium(A : list) -> int:
 
     x = len(A)
     min_value = math.inf
-
 
     for i in A:
         if i == x:
@@ -386,8 +382,6 @@ def solution_tape_equilibrium(A : list) -> int:
 
         if y < min_value:
             min_value = y
-
-
 
     return min_value
 
@@ -447,7 +441,7 @@ each element of array A is an integer within the range [1..X].
 """
 
 
-def solution_frog_river_one(A : list, X : int) -> int:
+def solution_frog_river_one(A: list, X: int) -> int:
     """
     :param A: An array consisting of N integers representing the falling leaves
     :param X: The position the frog wants to reach.
@@ -457,12 +451,12 @@ def solution_frog_river_one(A : list, X : int) -> int:
     X += 1
     X = range(X)
     X = list(X)
-    sum_x = sum(X)      # A variable to store the list value coming from the range of X.
-    list_sum = list()   # A list to set the indices of array A that represent seconds.
-    num_i = 0           # The moment when the frog can jump.
-    sum_a = 0           # The sum of the "list_sum".
+    sum_x = sum(X)  # A variable to store the list value coming from the range of X.
+    list_sum = list()  # A list to set the indices of array A that represent seconds.
+    num_i = 0  # The moment when the frog can jump.
+    sum_a = 0  # The sum of the "list_sum".
 
-    for i,v in enumerate(A):
+    for i, v in enumerate(A):
         if sum_x == sum_a:
             break
         list_sum = list(list_sum)
@@ -470,7 +464,6 @@ def solution_frog_river_one(A : list, X : int) -> int:
         list_sum = set(list_sum)
         sum_a = sum(list_sum)
         num_i = i
-
 
     return num_i
 
@@ -523,14 +516,14 @@ each element of array A is an integer within the range [1..1,000,000,000].
 """
 
 
-def solution_perm_check(A : list) -> int:
+def solution_perm_check(A: list) -> int:
     """
     :param A: An array consisting of N integers.
     :return: 1 if the array is a permutation or 0 if it's not.
     """
 
-    A = set(A)      # To set the array A and exclude repeated elements.
-    A = list(A)     # To turn the set type on a list type.
+    A = set(A)  # To set the array A and exclude repeated elements.
+    A = list(A)  # To turn the set type on a list type.
     sum_i = 0
     list_sum_i = []
 
@@ -597,7 +590,7 @@ each element of array A is an integer within the range [1..N + 1].
 """
 
 
-def solution_max_counters(A : list, N : int) -> list:
+def solution_max_counters(A: list, N: int) -> list:
     """
     :param A: A non-empty array A of M integers. This array represents consecutive operations:
     if A[K] = X, such that 1 ≤ X ≤ N, then operation K is increase(X),
@@ -606,13 +599,11 @@ def solution_max_counters(A : list, N : int) -> list:
     :return: A sequence of integers representing the values of the counters.
     """
 
-
-    list_counter = list(range(N))       # -> A list with N numbers of elements
+    list_counter = list(range(N))  # -> A list with N numbers of elements
     for i in list_counter:
-        list_counter[i] = 0             # - > To set all the elements to zero
+        list_counter[i] = 0  # - > To set all the elements to zero
 
-
-    for i,v in enumerate(A):
+    for i, v in enumerate(A):
 
         if 1 <= v and v <= N:
             list_counter[v - 1] += 1
@@ -621,7 +612,6 @@ def solution_max_counters(A : list, N : int) -> list:
             max_value = max(list_counter)
             for j in range(0, len(list_counter)):
                 list_counter[j] = max_value
-
 
     return list_counter
 
@@ -649,27 +639,25 @@ each element of array A is an integer within the range [−1,000,000..1,000,000]
 """
 
 
-def solution_missing_integer(A : list) -> int:
+def solution_missing_integer(A: list) -> int:
     """
     :param A: An array A of N integers.
     :return: The smallest positive integer (greater than 0) that does not occur in A.
     """
 
-
-    A = set(A)                              # -> To set the array A and exclude the repeated elements.
-    list_num = list(range(len(A) + 2))      # -> To create a list with all the elements within the range of A.
-    list_num.sort()                         # -> To sort the list list_num.
-    list_num.remove(0)                      # -> To remove the 0 from the list so that it starts at 1.
-    A = list(A)                             # -> To turn the set type on a list type.
-    A.sort()                                # -> To sort the list A.
+    A = set(A)  # -> To set the array A and exclude the repeated elements.
+    list_num = list(range(len(A) + 2))  # -> To create a list with all the elements within the range of A.
+    list_num.sort()  # -> To sort the list list_num.
+    list_num.remove(0)  # -> To remove the 0 from the list so that it starts at 1.
+    A = list(A)  # -> To turn the set type on a list type.
+    A.sort()  # -> To sort the list A.
     num_a = 0
     num_list = 0
     missing_integer = 0
     print(A)
     print(list_num)
 
-
-    for i,v in enumerate(A):
+    for i, v in enumerate(A):
         if v > 0:
             num_a += A[i]
             num_list += list_num[i]
@@ -730,7 +718,7 @@ each element of array A is an integer that can have one of the following values:
 """
 
 
-def solution_passing_cars(A : list) -> int:
+def solution_passing_cars(A: list) -> int:
     """
     :param A: A non-empty array A consisting of N integers. The consecutive elements of array A represent consecutive
     cars on a road. Array A contains only 0s and/or 1s:
@@ -774,7 +762,7 @@ A ≤ B.
 """
 
 
-def solution_count_div(A : int, B : int, K: int) -> int:
+def solution_count_div(A: int, B: int, K: int) -> int:
     """
     :param A: An integer within the range i <= A <= i <= B.
     :param B: An integer within the range i <= A <= i <= B.
@@ -794,7 +782,7 @@ def solution_count_div(A : int, B : int, K: int) -> int:
         num_list = list(range(A, B + 1))
         for i in num_list:
             try:
-                if i%K == 0:
+                if i % K == 0:
                     num_div += 1
             except ZeroDivisionError:
                 num_div = 0
@@ -851,7 +839,7 @@ string S consists only of upper-case English letters A, C, G, T.
 """
 
 
-def solution_genomic_range_query(S : str, P : list, Q : list) -> list:
+def solution_genomic_range_query(S: str, P: list, Q: list) -> list:
     """
     :param S: A DNA sequence given as a non-empty string S = S[0]S[1]...S[N-1] consisting of N characters.
     :param P: A non-empty array consisting of M integers.
@@ -907,7 +895,6 @@ def solution_genomic_range_query(S : str, P : list, Q : list) -> list:
         elif T[P[i]] < T[Q[i]] or S[P[i]] == "T":
             imp_factor.append(4)
 
-
     return imp_factor
 
 
@@ -959,18 +946,18 @@ each element of array A is an integer within the range [−10,000..10,000].
 """
 
 
-def solution_min_avg_two_slice(A : list) -> int:
+def solution_min_avg_two_slice(A: list) -> int:
     """
     :param A: A non-empty array A consisting of N integers.
     :return: The starting position of the slice with the minimal average.
     """
 
-    min_avg = max(A)*2
+    min_avg = max(A) * 2
     min_position = 0
 
     for i in range(0, len(A) - 2):
-        avg_two = (A[i] + A[i+1]) / 2
-        avg_three = (A[i] + A[i+1] + A[i+2]) / 3
+        avg_two = (A[i] + A[i + 1]) / 2
+        avg_three = (A[i] + A[i + 1] + A[i + 2]) / 3
 
         if min(avg_two, avg_three) < min_avg:
             min_avg = min(avg_two, avg_three)
@@ -1002,7 +989,7 @@ each element of array A is an integer within the range [−1,000,000..1,000,000]
 """
 
 
-def solution_distinct(A : list) -> int:
+def solution_distinct(A: list) -> int:
     """
     :param A: An array A consisting of N integers.
     :return: The number of distinct values in array A.
@@ -1012,6 +999,7 @@ def solution_distinct(A : list) -> int:
     distinct = len(values)
 
     return distinct
+
 
 """
 A non-empty array A consisting of N integers is given. The product of triplet (P, Q, R) 
@@ -1055,7 +1043,7 @@ each element of array A is an integer within the range [−1,000..1,000].
 """
 
 
-def solution_max_product_of_three(A : list) -> int:
+def solution_max_product_of_three(A: list) -> int:
     """
     :param A: A non-empty array A.
     :return: The value of the maximal product of any triplet.
@@ -1064,8 +1052,8 @@ def solution_max_product_of_three(A : list) -> int:
     A.sort()
     n = len(A)
 
-    product_1 = A[n-1] * A[0] * A[1]
-    product_2 = A[n-1] * A[n-2] * A[n-3]
+    product_1 = A[n - 1] * A[0] * A[1]
+    product_2 = A[n - 1] * A[n - 2] * A[n - 3]
 
     max_product = max(product_1, product_2)
 
@@ -1108,7 +1096,7 @@ each element of array A is an integer within the range [−2,147,483,648..2,147,
 """
 
 
-def solution_triangle(A : list) -> int:
+def solution_triangle(A: list) -> int:
     """
     :param A: An array A consisting of N integers.
     :return: Returns 1 if there exists a triangular triplet for this array and returns 0 otherwise.
@@ -1124,4 +1112,3 @@ def solution_triangle(A : list) -> int:
             triangle = 1
 
     return triangle
-
