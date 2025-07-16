@@ -225,10 +225,7 @@ class Solution:
             sum_sub_array = value
             for inside_index, inside_value in enumerate(nums):
                 sum_sub_array = sum_sub_array + inside_value if inside_index != index else inside_value 
-                if sum_sub_array > max_result:
-                    max_result = sum_sub_array
-                else:
-                    continue 
+                max_result = sum_sub_array if sum_sub_array > max_result else max_result
         return max_result
 
 
