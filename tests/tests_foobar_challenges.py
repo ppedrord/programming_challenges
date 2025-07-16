@@ -8,7 +8,7 @@ Programming Challenges - Tests
 """
 
 import pytest
-import foobar_challenges
+from challenges.foobar import foobar_challenges
 
 prime = [(0, '23571'),
          (3, '71113'),
