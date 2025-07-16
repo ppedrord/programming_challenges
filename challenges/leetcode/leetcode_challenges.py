@@ -220,13 +220,13 @@ class Solution:
         :returns: An integer representing the largest sum
         """
         print("\n## -- MAXIMUM SUBARRAY -- ##")
-        max_result = -99999999
+        max_sum = -99999999
         for index, value in enumerate(nums):
-            sum_sub_array = value
+            current_sum = 0
             for inside_index, inside_value in enumerate(nums):
-                sum_sub_array = sum_sub_array + inside_value if inside_index != index else inside_value 
-                max_result = sum_sub_array if sum_sub_array > max_result else max_result
-        return max_result
+                current_sum = (current_sum + inside_value) if inside_index != index else inside_value
+                max_sum = current_sum if current_sum > max_sum else max_sum
+        return max_sum
 
 
 
@@ -242,5 +242,5 @@ if __name__ == "__main__":
     is_palindrome_test = s.isPalindrome(0)
     print(is_palindrome_test)
 
-    max_sub_array_test = s.maxSubArray([5,4,-1,7,8])
+    max_sub_array_test = s.maxSubArray([-2,1,-3,4,-1,2,1,-5,4])
     print(max_sub_array_test)
